@@ -1,9 +1,7 @@
-
 Breve descrição do grupo
 
-* Turno: [LM]XX
-* Grupo: YY
+* Turno: L07
+* Grupo: 03
 * Alunos:
-    - Aluno1 upZZZZZ 
-    - Aluno2 upZZZZZ
-    - Aluno3 upZZZZZ
+    - Ana Sofia Teixeira up201806629 
+    - Teresa Corado up201806479

@@ -2,7 +2,7 @@
 
 ## Identificação
 
-- Affected the Traffic Management User Interface (TMUI) of multiple BIG-IP products, which allows users to manage their product and its settings.
+- CVE-2020-5902 affected the Traffic Management User Interface (TMUI) of multiple BIG-IP products, which allows users to manage their product and its settings.
 - Originated from multiple hosts targeting F5 BIG-IP servers, resulting in complete system compromise. 
 - Unauthenticated attackers with network access to the Configuration utility able to eventually gain full control over the BIG-IP device.
 - Attackers were able to execute arbitrary system commands, create or delete files, disable services, and/or execute arbitrary Java code. 

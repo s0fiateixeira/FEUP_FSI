@@ -6,21 +6,15 @@ In the first task, several commands such as env, printenv, export and unset, amo
 
 * Firstly, by using the printenv command we were able to print out the environment variables, as seen below. 
 
-![Image](LOGBOOK_screenshots/LOGBOOK4/task1/task1_11.png)
-![Image](LOGBOOK_screenshots/LOGBOOK4/task1/task1_12.png)
-![Image](LOGBOOK_screenshots/LOGBOOK4/task1/task1_13.png)
+![task1_1](LOGBOOK_screenshots/LOGBOOK4/task1_1.jpg)
 
+* Secondly, we used export and unset in order to manipulate the environment variables. When using export without any further arguments, it is returned a list of the environment variables (similarly to printenv), as shown in the first screenshot.
 
-* Secondly, we used export and unset in order to manipulate the environment variables. When using export without any further arguments, it is returned a list of the environment variables (similarly to printenv), as shown in the first screenshot. Here, we can see that HOME has a default value of (?). Then, when inserting a variable name as argument (HOME), as shown in the X screenshot, as well as its new value ([NEW VALUE (.../cenas)]), we were able to set this new value to the HOME variable. (completar de acordo com novos screenshots)
+![task1_21](LOGBOOK_screenshots/LOGBOOK4/task1_21.jpg)
 
-(Using export and unset to set or unset environment variables:)
-(change screenshots to new ones)
+Here, we can see that HOME has a default value of "/home/seed". Then, when inserting a variable name as argument, as shown in the second screenshot, as well as its new value (/home/seed/cenas), we were able to set this new value to the HOME variable. Afterwards, when unsetting the home variable we deleted it. In the end of the exercise we altered it so it was the same as the beginning.
 
-![Image](LOGBOOK_screenshots/LOGBOOK4/task1/task1_21.png)
-![Image](LOGBOOK_screenshots/LOGBOOK4/task1/task1_22.png)
-![Image](LOGBOOK_screenshots/LOGBOOK4/task1/task1_23.png)
-![Image](LOGBOOK_screenshots/LOGBOOK4/task1/task1_24.png)
-
+![task1_22](LOGBOOK_screenshots/LOGBOOK4/task1_22.jpg)
 
 ## Task 2: Passing Environment Variables from Parent Process to Child Process
 [todo]

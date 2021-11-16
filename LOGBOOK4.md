@@ -17,13 +17,24 @@ Here, we can see that HOME has a default value of "/home/seed". Then, when inser
 ![task1_22](LOGBOOK_screenshots/LOGBOOK4/task1_22.jpg)
 
 ## Task 2: Passing Environment Variables from Parent Process to Child Process
-[todo]
+
+During this exercise we noticed that the output of the two cases was the same, witch means that the environment variables of a parent process and a child process are the same. We concluded that when a fork happens, a new process is created by duplicating the calling process, so they have the same content.
+
+![task2](LOGBOOK_screenshots/LOGBOOK4/task2.png)
 
 ## Task 3: Environment Variables and execve()
-[todo]
+
+The output of the first version of the code returns nothing (as demonstrated in the picture bellow), however, the second version outputs the intended content. We concluded that it happens because the command excve does not return the environment by default and so it needs to be specified.
+
+![task3](LOGBOOK_screenshots/LOGBOOK4/task3.png)
+![task3_1](LOGBOOK_screenshots/LOGBOOK4/task3_1.png)
+
 
 ## Task 4: Environment Variables and system()
-[todo]
+
+![task4](LOGBOOK_screenshots/LOGBOOK4/task4.png)
+![task4_1](LOGBOOK_screenshots/LOGBOOK4/task4_1.jpg)
+
 
 ## Task 5: Environment Variable and Set-UID Programs
 [todo]

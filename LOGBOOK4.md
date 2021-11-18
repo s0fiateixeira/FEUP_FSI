@@ -46,14 +46,18 @@ All the environment variables set in the parent process get into the child proce
 
 
 ## Task 6: The PATH Environment Variable and Set-UID Programs
-![task6](LOGBOOK_screenshots/LOGBOOK4/task6.png)
+
+By creating a file with the malicious code (in our case our code only printed the sentence "malicious code") in the /home/seed: directory named ls, when recompiling the original code and changing the path, we were able to run some code. We concluded that it happens because the system call with "ls" gives the chance for a file with that name to be run and the command /bin/ls is not executed everytime. That translates to a vulnerability.
+
+![task6](LOGBOOK_screenshots/LOGBOOK4/task6.jpg)
 ![task6_1](LOGBOOK_screenshots/LOGBOOK4/task6_1.png)
+![task6_2](LOGBOOK_screenshots/LOGBOOK4/task6_2.jpg)
 
 ## Task 7: The LD PRELOAD Environment Variable and Set-UID Programs
-[todo]
+[todo]: <> ()
 
 ## Task 8: Invoking External Programs Using system() versus execve()
-[todo]
+[todo]: <> ()
 
 ## Task 9: Capability Leaking
-[todo]
+[todo]: <> ()

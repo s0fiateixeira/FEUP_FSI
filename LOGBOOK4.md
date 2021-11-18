@@ -37,10 +37,17 @@ The output of the first version of the code returns nothing (as demonstrated in 
 
 
 ## Task 5: Environment Variable and Set-UID Programs
-[todo]
+
+All the environment variables set in the parent process get into the child process (as seen in the last screenshot of this section). This means that when the child process is created, during the fork, all the variables are the same which is what we expected since the fork duplicates the process.
+
+![task5](LOGBOOK_screenshots/LOGBOOK4/task5.png)
+![task5_3](LOGBOOK_screenshots/LOGBOOK4/task5_3.png)
+![task5_31](LOGBOOK_screenshots/LOGBOOK4/task5_31.jpg)
+
 
 ## Task 6: The PATH Environment Variable and Set-UID Programs
-[todo]
+![task6](LOGBOOK_screenshots/LOGBOOK4/task6.png)
+![task6_1](LOGBOOK_screenshots/LOGBOOK4/task6_1.png)
 
 ## Task 7: The LD PRELOAD Environment Variable and Set-UID Programs
 [todo]

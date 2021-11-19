@@ -1,3 +1,37 @@
+This logbook is divided into 2 sections, one referring to the CTF - week 4, and another concerning the tasks for week 4.
+
+# CTF - Week 4
+
+## Step 1 - recognition
+
+The first task was the recognition phase, where all the information that could be useful to help us explore and exploit the vulnerabilities in the website was collected, such as wordpress or other plugins versions, existing registered users and their usernames. Some of the information collected is listed below.
+
+Users:
+* admin
+* Orval Sanford
+
+Both on WordPress Hosting, © Secure WP Hosting 2021
+
+Versions:
+* Wordpress 5.8.1.
+* WooCommerce plugin 5.7.1.
+* Booster for WooCommerce plugin 5.4.3.
+
+Any of this information can lead to the discovery of vulnerabilities, which takes us to the second step.
+
+## Step 2 - Search for vulnerabilities
+
+After the recognition was done, a research of the collected information was made in order to confirm if the software had any known vulnerabilities. Search engines and CVE databases such as https://cvedetails.com/ were used to look for vulnerabilities that affect the versions of the plugins that were found.
+
+## Step 3 - Chosing the vulnerability
+
+Given that the objective was to login as another user, we needed to find a vulnerability that allowed us to do so. After some research, the CVE-2021-34646 was found, which targeted versions up to, and including, 5.4.3, of the Booster for WooCommerce WordPress plugin (found in step 1). This made the system vulnerable to authentication bypass via the process_email_verification function due to a random token generation weakness in the reset_and_mail_activation_link function found in the ~/includes/class-wcj-emails-verification.php file. This allows attackers to impersonate users and trigger an email address verification for arbitrary accounts, including administrative accounts, and automatically be logged in as that user, including any site administrators. For this reason, this CVE was found to be an adequate one, once it fulfilled the initial goal.
+
+## Step 4 - Finding an exploit
+
+...
+
+
 # Environment Variable and Set-UID Program Lab
 
 ## Task 1: Manipulating Environment Variables

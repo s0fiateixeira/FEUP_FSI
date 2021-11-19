@@ -29,7 +29,12 @@ Given that the objective was to login as another user, we needed to find a vulne
 
 ## Step 4 - Finding an exploit
 
-...
+Knowing that the server is vulnerable, and after choosing the vulnerability to target, we needed to find an exploit for the chosen CVE. In the Exploit Database website, by searching for this CVE, it was found an exploit titled "WordPress Plugin WooCommerce Booster Plugin 5.4.3 - Authentication Bypass", by Sebastian Kriesten, in the link https://www.exploit-db.com/exploits/50299. The steps of this exploit were then followed, which allowed us to login as the admin (username found in step 1).
+
+## Step 5 - Exploring the vulnerability
+
+After analysing the exploit and gaining access to the server as an admin, we went to the designated link (http://ctf-fsi.fe.up.pt:5001/wp-admin/edit.php) where the desired flag was found in a private post.
+
 
 ____
 ____

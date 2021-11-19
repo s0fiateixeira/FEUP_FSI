@@ -31,6 +31,9 @@ Given that the objective was to login as another user, we needed to find a vulne
 
 ...
 
+____
+____
+
 
 # Environment Variable and Set-UID Program Lab
 

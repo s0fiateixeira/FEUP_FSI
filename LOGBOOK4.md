@@ -21,15 +21,19 @@ Any of this information can lead to the discovery of vulnerabilities, which take
 
 ## Step 2 - Search for vulnerabilities
 
-After the recognition was done, a research of the collected information was made in order to confirm if the software had any known vulnerabilities. Search engines and CVE databases such as https://cvedetails.com/ were used to look for vulnerabilities that affect the versions of the plugins that were found.
+After the recognition was done, a research of the collected information was made in order to confirm if the software had any known vulnerabilities. Search engines and CVE databases such as https://cvedetails.com/ were used to look for vulnerabilities that affected the versions of the plugins that were found.
 
 ## Step 3 - Chosing the vulnerability
 
-Given that the objective was to login as another user, we needed to find a vulnerability that allowed us to do so. After some research, the CVE-2021-34646 was found, which targeted versions up to, and including, 5.4.3, of the Booster for WooCommerce WordPress plugin (found in step 1). This made the system vulnerable to authentication bypass via the process_email_verification function due to a random token generation weakness in the reset_and_mail_activation_link function found in the ~/includes/class-wcj-emails-verification.php file. This allows attackers to impersonate users and trigger an email address verification for arbitrary accounts, including administrative accounts, and automatically be logged in as that user, including any site administrators. For this reason, this CVE was found to be an adequate one, once it fulfilled the initial goal.
+Given that the objective was to login as another user, the administrator, we needed to find a vulnerability that allowed us to do so. After some research, the CVE-2021-34646 was found, which targeted versions up to, and including, 5.4.3, of the Booster for WooCommerce WordPress plugin (found in step 1). This made the system vulnerable to authentication bypass via the process_email_verification function due to a random token generation weakness in the reset_and_mail_activation_link function found in the ~/includes/class-wcj-emails-verification.php file. This allows attackers to impersonate users and trigger an email address verification for arbitrary accounts, including administrative accounts, and automatically be logged in as that user, including any site administrators. For this reason, this CVE was found to be an adequate one, once it fulfilled the initial goal. This was how the flag for the first challenge was found.
 
 ## Step 4 - Finding an exploit
 
-...
+Knowing that the server is vulnerable, and after choosing the vulnerability to target, we needed to find an exploit for the chosen CVE. In the Exploit Database website, by searching for this CVE, it was found an exploit titled "WordPress Plugin WooCommerce Booster Plugin 5.4.3 - Authentication Bypass", by Sebastian Kriesten, in the link https://www.exploit-db.com/exploits/50299. The steps of this exploit were then followed, which allowed us to login as the admin (username found in step 1).
+
+## Step 5 - Exploring the vulnerability
+
+After analysing the exploit and gaining access to the server as an admin, we went to the designated link (http://ctf-fsi.fe.up.pt:5001/wp-admin/edit.php) where the flag for the second challenge was found in a private post.
 
 ____
 ____

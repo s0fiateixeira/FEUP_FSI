@@ -2,14 +2,61 @@ This logbook is divided into 2 sections, one referring to the CTF - week 6, and 
 
 # CTF - Week 6
 
-<!---## Challenge 1
+## Challenge 1
 
-![challenge1](LOGBOOK_screenshots/LOGBOOK6/challenge1.png)
+After running checksec we concluded that the file architecture is x86 (Arch), there is a mitigation that makes some read-only addresses of some funcions defined at the executable's startup (RELRO), there is a cannary protecting the return address (Stack), the stack has no execute permission (NX) and the binary positions are not randomized (PIE).
+
+![challenge1_1](LOGBOOK_screenshots/LOGBOOK6/challenge1_1.png)
+
+We analysed the given code and answered the questions below:
+
+* **Which is the line of code where the vulnerability resides?**
+
+The vulnerability resides in line 27:
+
+```c
+printf(buffer);
+```
+
+* **What does the vulnerability allow you to do?**
+
+The vulnerability allows us to check the content of the memory address of the buffer. In this case, we want to check the address of the *flag* variable. We did it using *gdb* as seen in the screenshot below:
+
+![challenge1_2](LOGBOOK_screenshots/LOGBOOK6/challenge1_2.png)
+
+After that, we needed to check the difference between the string *"aaaa"* and the hexadecimal code *61616161*. As we can see in the picture, it is adjacent which means that they belong to consecutive addresses.
+
+![challenge1_3](LOGBOOK_screenshots/LOGBOOK6/challenge1_3.png)
+
+Having that in mind, we can print the content of the address specified in *exploit_example.py*
+
+* **What is the functionality that allows you to get the flag?**
+
+We can get the flag because of a format-string vulnerability, which allows us to read from an arbitrary memory place.
+
+![challenge1_4](LOGBOOK_screenshots/LOGBOOK6/challenge1_4.png)
 
 
 ## Challenge 2
 
-![challenge2](LOGBOOK_screenshots/LOGBOOK6/challenge2.png)-->
+After running checksec we concluded that the file architecture is x86 (Arch), there is a mitigation that makes some read-only addresses of some funcions defined at the executable's startup (RELRO), there is a cannary protecting the return address (Stack), the stack has no execute permission (NX) and the binary positions are not randomized (PIE).
+
+![challenge1_1](LOGBOOK_screenshots/LOGBOOK6/challenge1_1.png)
+
+We analysed the given code and answered the questions below:
+
+
+* **Which is the line of code where the vulnerability resides? What does the vulnerability allow you to do?**
+
+key -> 0x804c034
+
+
+* **Is the flag loaded into memory? Or is there some functionality that we can use to access it?**
+
+* **What do you have to do to unlock this feature?**
+
+
+![challenge2](LOGBOOK_screenshots/LOGBOOK6/challenge2.png)
 
 ____
 ____

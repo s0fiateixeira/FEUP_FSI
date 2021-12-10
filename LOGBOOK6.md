@@ -41,22 +41,36 @@ We can get the flag because of a format-string vulnerability, which allows us to
 
 After running checksec we concluded that the file architecture is x86 (Arch), there is a mitigation that makes some read-only addresses of some funcions defined at the executable's startup (RELRO), there is a cannary protecting the return address (Stack), the stack has no execute permission (NX) and the binary positions are not randomized (PIE).
 
-![challenge1_1](LOGBOOK_screenshots/LOGBOOK6/challenge1_1.png)
+![challenge2_1](LOGBOOK_screenshots/LOGBOOK6/challenge2_1.png)
 
 We analysed the given code and answered the questions below:
 
 
 * **Which is the line of code where the vulnerability resides? What does the vulnerability allow you to do?**
 
-key -> 0x804c034
+The vulnerability resides in line 14:
 
+```c
+printf(buffer);
+```
+
+This is a format-string vulnerability which allows us to read from an arbitrary memory place and modify the values in an arbitrary memory place.
 
 * **Is the flag loaded into memory? Or is there some functionality that we can use to access it?**
 
+No, it is not. We can access the flag through the shell that opens when the *key* value is equal to *0xbeef*.
+
 * **What do you have to do to unlock this feature?**
 
+To see the flag, we can change the value of the *key* variable so the shell is run. For that we need to take advantage of the format-string vulnerability to change that value. We sarted by see which is the address of the *key* variable, as seen in the screenshot below:
 
-![challenge2](LOGBOOK_screenshots/LOGBOOK6/challenge2.png)
+![challenge2_2](LOGBOOK_screenshots/LOGBOOK6/challenge2_2.png)
+
+![challenge2_3](LOGBOOK_screenshots/LOGBOOK6/challenge2_3.png)
+![challenge2_4](LOGBOOK_screenshots/LOGBOOK6/challenge2_4.png)
+![challenge2_5](LOGBOOK_screenshots/LOGBOOK6/challenge2_5.png)
+![challenge2_6](LOGBOOK_screenshots/LOGBOOK6/challenge2_6.png)
+![challenge2_7](LOGBOOK_screenshots/LOGBOOK6/challenge2_7.png)
 
 ____
 ____

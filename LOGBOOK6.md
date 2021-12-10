@@ -62,15 +62,23 @@ No, it is not. We can access the flag through the shell that opens when the *key
 
 * **What do you have to do to unlock this feature?**
 
-To see the flag, we can change the value of the *key* variable so the shell is run. For that we need to take advantage of the format-string vulnerability to change that value. We sarted by see which is the address of the *key* variable, as seen in the screenshot below:
+To see the flag, we can change the value of the *key* variable so the shell runs. For that, we need to take advantage of the format-string vulnerability to change that value. We sarted by see which is the address of the *key* variable, as seen in the screenshot below:
 
 ![challenge2_2](LOGBOOK_screenshots/LOGBOOK6/challenge2_2.png)
 
+After that, we checked the distance between the string *"aaaa"* and the hexadecimal code *61616161*. As we can see in the picture, it is adjacent, meaning that they belong to consecutive addresses.
+
 ![challenge2_3](LOGBOOK_screenshots/LOGBOOK6/challenge2_3.png)
+
+Having that in mind we needed to write the value *0xbeef* into address *0x0804c034*. To do that we started by writing into the buffer *aaaa*, then the address of the *key* variable and then the 
+value that we needed. That was calculated keeping in mind that:
+
+> 48879 - 4 - 4 = 48871
+
+Where, *48879* is the decimal value of *0xbeef*, then we needed to subtract 4 characters for the begining of the string (*"aaaa"*) and then subtract 4 characters corresponding to the characteres needed to write the address value. After that, we were able to run the code and a new shell was presented. We used "cat flag.txt" to print the content of the file in which we could see the required flag.
+
 ![challenge2_4](LOGBOOK_screenshots/LOGBOOK6/challenge2_4.png)
 ![challenge2_5](LOGBOOK_screenshots/LOGBOOK6/challenge2_5.png)
-![challenge2_6](LOGBOOK_screenshots/LOGBOOK6/challenge2_6.png)
-![challenge2_7](LOGBOOK_screenshots/LOGBOOK6/challenge2_7.png)
 
 ____
 ____

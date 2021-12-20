@@ -79,8 +79,8 @@ In the first part, we needed to modify the value of the salary using the edit pr
 
 In this part we needed to change someone else's salary. To do this, we used *', salary=1 WHERE Name='Boby';#*.
 
-![task32_1](LOGBOOK_screenshots/LOGBOOK8/task31_1.png)
+![task32_1](LOGBOOK_screenshots/LOGBOOK8/task32_1.png)
 
-![task32_2](LOGBOOK_screenshots/LOGBOOK8/task31_2.png)
+![task32_2](LOGBOOK_screenshots/LOGBOOK8/task32_2.png)
 
-![task32_3](LOGBOOK_screenshots/LOGBOOK8/task31_3.png)
+![task32_3](LOGBOOK_screenshots/LOGBOOK8/task32_3.png)

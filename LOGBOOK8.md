@@ -28,9 +28,11 @@ In order to add a command, we used `;` in the beginning of the string, followed 
 Once the objective was to get to the flag which was written in the flag.txt file, we used the following as input: `; cat /flag.txt #`, which opens the file flag.txt and returns its content.
 
 - Using the command `; ls` :
+
 ![challenge2_1](LOGBOOK_screenshots/LOGBOOK8/challenge2_1.png)
 
-- Using the command `; cat /flag.txt #` or `; cat /flag.txt` :
+- Using the command `; cat /flag.txt #` or `; cat /flag.txt`:
+
 ![challenge2_2](LOGBOOK_screenshots/LOGBOOK8/challenge2_2.png)
 
 ____

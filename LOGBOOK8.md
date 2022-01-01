@@ -3,11 +3,29 @@ This logbook is divided into 2 sections, one referring to the CTF - week 8/9, an
 # CTF - Week 8/9
 
 ## Challenge 1
-<!---
-![challenge1](LOGBOOK_screenshots/LOGBOOK8/challenge1.png)
--->
+
+When examining the given source code, a vulnerability in the login section is identified in line 40:
+
+`$query = "SELECT username FROM user WHERE username = '".$username."' AND password = '".$password."'";`
+
+Here we can verify that the query is generated server-side, which generates SQL commands dinamically. Through this, we can change the semantics of the SQL command and enter the admin session through SQL injection, by entering `' or 1=1 --` in the username field. 
+
+Since `or 1=1` is always true and the rest of the instruction is commented, this will change the query to `SELECT * FROM users WHERE username = '' OR 1=1-- ' AND password = 'foo'`, which will return all users and therefore giving us access to the admin's account.
 
 ## Challenge 2
+
+By examining the page, the only visible functionalities available to a non authenticated user are the following:
+
+- login using an email and a password
+- ping a host
+- ask for a speed report
+
+The relevant functionality for this CTF was pinging a host, which was concluded to be implemented by executing a shell command and then display the output. This was suspected to be achieved through the `system()` function, which executes a specified command and returns after it has been completed. 
+
+This led to a possibility of shell code injection, once the `host` field was found to execute any linux command that was introduced. 
+In order to add a command, we used `;` in the beginning of the string, followed by the instruction and ending in `#`, so that a command in the same line would be executed and commenting what would come afterwards. We noticed that in this case the result was the same without the `#` element.
+
+Once the objective was to get to the flag which was written in the flag.txt file, we used the following as input: `; cat /flag.txt #`, which opens the file flag.txt and returns its content.
 
 <!---
 ![challenge2](LOGBOOK_screenshots/LOGBOOK8/challenge2.png)

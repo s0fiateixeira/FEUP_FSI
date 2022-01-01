@@ -6,7 +6,7 @@ This logbook is divided into 2 sections, one referring to the CTF - week 8/9, an
 
 When examining the given source code, a vulnerability in the login section is identified in line 40:
 
-`$query = "SELECT username FROM user WHERE username = '".$username."' AND password = '".$password."'";`
+![challenge1_1](LOGBOOK_screenshots/LOGBOOK8/challenge1_1.png)
 
 Here we can verify that the query is generated server-side, which generates SQL commands dinamically. Through this, we can change the semantics of the SQL command and enter the admin session through SQL injection, by entering `' or 1=1 --` in the username field. 
 
@@ -27,9 +27,12 @@ In order to add a command, we used `;` in the beginning of the string, followed 
 
 Once the objective was to get to the flag which was written in the flag.txt file, we used the following as input: `; cat /flag.txt #`, which opens the file flag.txt and returns its content.
 
-<!---
-![challenge2](LOGBOOK_screenshots/LOGBOOK8/challenge2.png)
--->
+- Using the command `; ls` :
+![challenge2_1](LOGBOOK_screenshots/LOGBOOK8/challenge2_1.png)
+
+- Using the command `; cat /flag.txt #` or `; cat /flag.txt` :
+![challenge2_2](LOGBOOK_screenshots/LOGBOOK8/challenge2_2.png)
+
 ____
 ____
 

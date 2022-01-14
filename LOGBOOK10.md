@@ -84,9 +84,13 @@ window.onload = function () {
 }
 </script>
 ```
-After that, we checked that in other users' profiles we were able to add Sam as friend only by seeing his profile.
+After that, we checked that in other users' profiles we were able to add Samy as friend only by seeing his profile.
 
 ![task4_2](LOGBOOK_screenshots/LOGBOOK10/task4_2.png)
 
 #### **Question 1: Explain the purpose of Lines ➀ and ➁, why are they are needed?**
+
+Lines 1 and 2 get the values of the *__elgg_ts* and *__elgg_token* variables. These values are used against Cross Site Request Forgery attacks. The values change every time a page is loaded, so they need to be accessed every time.
+
 #### **Question 2:  If the Elgg application only provide the Editor mode for the "About Me" field, i.e., you cannot switch to the Text mode, can you still launch a successful attack?**
+No, if the application only provided the Editor mode, the attack would not be successful since this mode adds extra HTML and some symbols change.

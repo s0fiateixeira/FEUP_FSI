@@ -3,9 +3,34 @@ This logbook is divided into 2 sections, one referring to the CTF - week 10, and
 # CTF - Week 10
 
 ## Challenge 1
-<!---
-![challenge1](LOGBOOK_screenshots/LOGBOOK10/challenge1.png)
--->
+
+For this challenge, we needed to make a request to the administrator to give access to the flag. For that, we started by checking what happened when a request was made by typing the string *"flag"* and we concluded that it appeared a page with two disabled buttons, as seen in the picture below:
+
+![challenge1_1](LOGBOOK_screenshots/LOGBOOK10/challenge1_1.png)
+
+Then, we tried to see what would happen when we would type some HTML code. For that, we typed:
+
+```html
+<button onclick="myFunction()">Click me</button>
+```
+And the result was as seen in the picture:
+
+![challenge1_2](LOGBOOK_screenshots/LOGBOOK10/challenge1_2.png)
+
+With this, we concluded that there existed a cross-site scripting vulnerability and to take advantage of that, we inspected the page to see the button id. We concluded it was *giveflag*:
+
+![challenge1_3](LOGBOOK_screenshots/LOGBOOK10/challenge1_3.png)
+
+Having that, we could write code to click the disabled button. For that, we typed:
+
+```html
+<script> document.getElementById("giveflag").click();</script>
+```
+
+After some time waiting for an answer, we were able to get the flag.
+
+![challenge1_4](LOGBOOK_screenshots/LOGBOOK10/challenge1_4.png)
+
 
 ## Challenge 2
 

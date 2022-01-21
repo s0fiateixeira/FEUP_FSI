@@ -34,9 +34,28 @@ After some time waiting for an answer, we were able to get the flag.
 
 ## Challenge 2
 
-<!---
-![challenge2](LOGBOOK_screenshots/LOGBOOK10/challenge2.png)
--->
+We started this challenge by running checksec:
+
+![challenge2_1](LOGBOOK_screenshots/LOGBOOK10/challenge2_1.png)
+
+After running checksec we concluded that there is not a mitigation that makes some read-only addresses of some functions defined at the executable's startup (RELRO), there is not a canary protecting the return address (Stack), the stack has execute permission (NX) and the binary positions are randomized (PIE).
+
+Then, we analysed the given code. In there we could see that it was used a *gets* function which is unsafe once it can read a number of bytes larger than the buffer size, which can lead to a buffer overflow.
+
+![challenge2_2](LOGBOOK_screenshots/LOGBOOK10/challenge2_2.png)
+
+For that, we needed to check the offset between the buffer address and the return address. For that we run gdb:
+
+![challenge2_3](LOGBOOK_screenshots/LOGBOOK10/challenge2_3.png)
+
+With that we could calculate the offset: ```0xffa70758 - 0xffa706f0 = 104```. This means that we were able to create code to get the flag for this challenge:
+
+![challenge2_4](LOGBOOK_screenshots/LOGBOOK10/challenge2_4.png)
+
+By running this code we were able to open a shell and with the command *ls* we saw that there was the *flag.txt* file. By using the command *cat* we were able to see it's content and get the flag:
+
+![challenge2_5](LOGBOOK_screenshots/LOGBOOK10/challenge2_5.png)
+
 ____
 ____
 
